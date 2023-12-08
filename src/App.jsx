@@ -6,6 +6,7 @@ import Productsappadmin from "./components/admin/articles/Productsappadmin"
 import Listcategories from "./components/admin/categories/Listcategories"
 import Listscategories from "./components/admin/scategories/Listscategories"
 import Menu from "./components/admin/Menu"
+import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 function App() {

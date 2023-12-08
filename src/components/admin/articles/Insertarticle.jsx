@@ -27,7 +27,7 @@ const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 const dispatch = useDispatch();
-const {scategories,isLoading} = useSelector((state) =>state.storescategories);
+const {scategories,isLoading,error,success} = useSelector((state) =>state.storescategories);
 
 useEffect(() => {
   dispatch(getScategories())
@@ -44,11 +44,21 @@ const handlechange=(e)=>{
     e.preventDefault();
     const form = e.currentTarget;
     if (form.checkValidity() === true) {
-   
+      
     //faire le add dans la BD
     dispatch(createArticle(article))
-    .then(res => {
-      console.log("Insert OK",res);
+    if(error!=null){
+      toast("Erreur de suppression", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,progress: undefined,
+      })
+    }
+    if(success!=null) {
+      console.log("Insert OK");
       toast("Article ajouté", {
         position: "top-right",
         autoClose: 5000,
@@ -60,11 +70,8 @@ const handlechange=(e)=>{
      handleReset()
     setValidated(false);
     
-    })
-    .catch(error=>{
-    console.log(error)
-    alert("Erreur ! Insertion non effectuée")
-    })
+    }
+    
     }
     setValidated(true);
     }
