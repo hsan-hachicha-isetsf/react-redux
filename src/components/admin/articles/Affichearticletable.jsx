@@ -22,18 +22,24 @@ const Affichearticletable = () => {
 
     const handleDelete = (id, ref) => {
         if (window.confirm("supprimer Article O/N")) {
-            dispatch(delArticle(id));
-            toast(`Article ${ref} Supprimé`, {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
+            dispatch(delArticle(id))
+            .then((response)=>{
+                toast(`Article ${ref} Supprimé`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                })
+                })
+            .catch((error)=>{
+                console.log(error)
             })
         }
-    }
+        }
+    
     const handleEdit = (item) => {
         setArticle(item);
         setShowModal(true);

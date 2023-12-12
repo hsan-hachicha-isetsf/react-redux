@@ -8,6 +8,7 @@ import Listscategories from "./components/admin/scategories/Listscategories"
 import Menu from "./components/admin/Menu"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import StripePayment from './components/client/StripePayment';
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
         <Route path="/articlesadmin" element={<Productsappadmin/>}/>
         <Route path="/categories" element={<Listcategories/>}/>
         <Route path="/scategories" element={<Listscategories/>}/>
+        <Route path='/pay/:total' element={<StripePayment/>}/>
       </Routes>
 
      </Router>

@@ -129,7 +129,8 @@ state.isLoading=false;
 state.error=null;
 state.articles=state.articles.filter((item)=> item._id!==action.payload)
 })
-.addCase(delArticle.rejected, (state, action) => {
+.addCase(delArticle.rejected, (state, action) => { 
+    console.log(action.payload)
 state.isLoading=false;
 state.error=action.payload;
 })

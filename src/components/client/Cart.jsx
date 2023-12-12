@@ -91,7 +91,14 @@ Clear Cart
 TND</span>
 </div>
 <p>Taxes and shipping calculated at checkout</p>
-<button>Check out</button>
+<button >
+{ <Link to={"/pay/" + cart.cartTotalAmount}
+
+style={{"color":"yellow"}}>
+Validate and Pay
+</Link>
+}
+</button>
 <div className="continue-shopping">
 <Link to="/articlesclient">
 <span>Continue Shopping</span>
