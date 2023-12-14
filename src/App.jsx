@@ -9,6 +9,8 @@ import Menu from "./components/admin/Menu"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import StripePayment from './components/client/StripePayment';
+import Login from "./components/admin/Login"
+import Register from "./components/admin/Register"
 
 function App() {
   
@@ -17,8 +19,11 @@ function App() {
     <>
     <ToastContainer/>
      <Router>
-      <Menu/>
+      
       <Routes>
+        <Route path="" element={<Login/>}/>
+        <Route path="/admin/menu" element={<Menu/>}/>
+        <Route path="/register" element ={<Register/>}/> 
         <Route path="/articlesclient" element={<Listarticles/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/articlesadmin" element={<Productsappadmin/>}/>
