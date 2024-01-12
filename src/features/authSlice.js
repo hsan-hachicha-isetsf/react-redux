@@ -71,7 +71,7 @@ isLoggedIn:false,
         console.log(action.payload);
         state.user = action.payload.user;
         localStorage.setItem("CC_Token",action.payload.token);
-        console.log( localStorage.getItem("CC_Token"))
+        localStorage.setItem('refresh_token', action.payload.refreshToken)
         })
         .addCase(login.rejected, (state, action) => {
         state.isLoggedIn = false;

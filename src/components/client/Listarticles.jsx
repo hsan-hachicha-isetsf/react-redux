@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import {getArticles} from "../../features/articleslice";
 import AfficheArticles from './AfficheArticles';
 import Menuclient from './Menuclient';
+import Accueil from '../Accueil';
 const Listarticles = () => {
     const dispatch=useDispatch()
     useEffect(() => {
@@ -11,6 +12,7 @@ const Listarticles = () => {
   return (
     <div>
       <Menuclient/>
+      <Accueil/>
       <AfficheArticles/>
     </div>
   )
